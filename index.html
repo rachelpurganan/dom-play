@@ -22,9 +22,12 @@
      
    <main class="wrapper">
      <div id = "play">
-      <p><span>Hamlet: To be or not to be?</span></p>
-      <p><span>Skull: Are you talking to me?</span></p>
-      <p><span>Hamlet: What did you say?</span></p>
+      <p><span data-actor="hamlet">Hamlet: To be or not to be?</span></p>
+      <p><span data-actor="skull">Skull: Are you talking to me?</span></p>
+      <p><span data-actor="hamlet">Hamlet: Did you say something?</span></p>
+      <p><span data-actor="skull">Skull: No, I'm only a skull. </span></p>
+      <p><span data-actor="hamlet">Hamlet: Good, because I thought I was going crazy!</span></p>
+      <p><span data-actor="romeo">Romeo: What am I doing here?</span></p>
     </div>  
      <footer>
       <p><small>&copy; 2021 by 
@@ -40,22 +43,25 @@
 
     console.log(spans);
 
-
-    
     for(const mySpan of spans){
-      mySpan.addEventListener('click', myAlert);
+      mySpan.addEventListener('click', function(ev){
+        //alert(mySpan.dataset.actor);
+
+        highlightActor(mySpan.dataset.actor);
+
+      });
     }
 
-    function myAlert(){
-      alert("I'm clicked");
-    }
+    function highlightActor(actor) {
 
-    function highlight(el) {
-      if(el.style.backgroundColor=='yellow'){
-        el.style.backgroundColor = '#e6ccb2';
-      }else{
-        el.style.backgroundColor = 'yellow';
+      for(const mySpan of spans){
+        if(actor == mySpan.dataset.actor){
+          mySpan.style.backgroundColor = 'yellow';
+        }else{
+          mySpan.style.backgroundColor = '#e6ccb2';
+        }
       }
+
     }
 
     //document.querySelector('span.hamlet').style.backgroundColor = "yellow";
