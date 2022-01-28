@@ -21,13 +21,23 @@
      </header>
      
    <main class="wrapper">
+    <p>This page uses JavaScript to allow a user to click on the name of an actor and highlight their lines in a play. This page uses data-attributes and an anonymous function to loop through a nodelist and compare data-attributes to highlight or unhighlight text.</p>
+    <h2>CRAZY RICH ASIANS</h2>
      <div id = "play">
-      <p><span data-actor="hamlet">Hamlet: To be or not to be?</span></p>
-      <p><span data-actor="skull">Skull: Are you talking to me?</span></p>
-      <p><span data-actor="hamlet">Hamlet: Did you say something?</span></p>
-      <p><span data-actor="skull">Skull: No, I'm only a skull. </span></p>
-      <p><span data-actor="hamlet">Hamlet: Good, because I thought I was going crazy!</span></p>
-      <p><span data-actor="romeo">Romeo: What am I doing here?</span></p>
+      <p><span data-actor="clerk">Clerk: May I help you? This is the Calthorpe, a private hotel.</span></p>
+      <p><span data-actor="eleanor">Eleanor: I'm Mrs. Eleanor Young. I have a reservation. The Lancaster suite. We spoke on the phone when I confirmed yesterday.</span></p>
+      <p><span data-actor="clerk">Clerk: Sorry, don't seem to have your reservation.</span></p>
+      <p><span data-actor="ormsby">Ormsby: Good evening. I'm Reginald Ormsby, hotel manager. Is there a problem?</span></p>
+      <p><span data-actor="eleanor">Eleanor: I'm Mrs. Eleanor Young. My family and I would like to be shown to our suite. We’ve had a long flight.</span></p>
+      <p><span data-actor="ormsby">Ormsby: We're fully booked, madam. You must have made a mistake. I'm sure you and your lovely family can find other accommodations. May I suggest you explore Chinatown?</span></p>
+      <p><span data-actor="felicity">Felicity: (in Cantonese;  subtitled; mutters) You can explore Hell. You dog turd.</span></p>
+      <p><span data-actor="ormsby">Ormsby: I must ask you to  leave, or I'll have to call the police.</span></p>
+      <p><span data-actor="eleanor">Eleanor: Please, go right ahead.</span></p>
+      <p><span data-actor="ormsby">Ormsby: Lord Calthorpe! My apologies for this disturbance -- </span></p>
+      <p><span data-actor="calthorpe">Lord Calthorpe: Eleanor! I just got off the phone with your husband. </span></p>
+      <p><span data-actor="calthorpe">Lord Calthorpe: (snaps at clerks) Get the Lancaster suite ready. NOW.</span></p>
+      <p><span data-actor="ormsby">Ormsby: Surely you're joking, sir.</span></p>
+      <p><span data-actor="calthorpe">Lord Calthorpe: I assure you, I'm not. As of this evening, my family's long history as custodians of the Calthorpe is ended. I am selling the hotel to my dear friends, the Young family of Singapore. Meet the new lady of the house, Eleanor Young.</span></p>
     </div>  
      <footer>
       <p><small>&copy; 2021 by 
@@ -37,35 +47,6 @@
      </p>
     </footer>
   </main>
-  <script>
-
-    const spans = document.querySelectorAll('div#play span');
-
-    console.log(spans);
-
-    for(const mySpan of spans){
-      mySpan.addEventListener('click', function(ev){
-        //alert(mySpan.dataset.actor);
-
-        highlightActor(mySpan.dataset.actor);
-
-      });
-    }
-
-    function highlightActor(actor) {
-
-      for(const mySpan of spans){
-        if(actor == mySpan.dataset.actor){
-          mySpan.style.backgroundColor = 'yellow';
-        }else{
-          mySpan.style.backgroundColor = '#e6ccb2';
-        }
-      }
-
-    }
-
-    //document.querySelector('span.hamlet').style.backgroundColor = "yellow";
-  </script>
   <script src="js/dom-play.js"></script>
   <script src="js/main.js"></script>
  </body>
